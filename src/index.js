@@ -19,44 +19,44 @@ app.get('/belezas', (request, response) =>{
 })
 //-------------INSERIR-----------------------
 app.post('/medicamentos', (request, response) => {
-    const {nome, valor} = request.body
-    const medicamento = {id: uuid(), nome, valor}
+    const {nome, valor, marca} = request.body
+    const medicamento = {id: uuid(), nome, valor, marca}
     medicamentos.push(medicamento)
     return response.status(201).json(medicamento)
 })
 app.post('/higienes', (request, response) => {
-    const {nome, valor} = request.body
-    const higiene = {id: uuid(), nome, valor}
+    const {nome, valor, marca} = request.body
+    const higiene = {id: uuid(), nome, valor, marca}
     higienes.push(higiene)
     return response.status(201).json(higiene)
 })
 app.post('/belezas', (request, response) => {
-    const {nome, valor} = request.body
-    const beleza = {id: uuid(), nome, valor}
+    const {nome, valor, marca} = request.body
+    const beleza = {id: uuid(), nome, valor, marca}
     belezas.push(beleza)
     return response.status(201).json(beleza)
 })
 //----------------ATUALIZAR--------------------
 app.put('/medicamentos/:id', (request, response) => {
     const { id } = request.params
-    const { nome, valor } = request.body
-    const newMedicamentos = { id, nome, valor }
+    const { nome, valor, marca } = request.body
+    const newMedicamentos = { id, nome, valor, marca }
     const medicamentoindex = medicamentos.findIndex(medicamento => medicamento.id == id)
     medicamentos[medicamentoindex] = newMedicamentos;
     return response.json(newMedicamentos)
 })
 app.put('/higienes/:id', (request, response) => {
     const { id } = request.params
-    const { nome, valor } = request.body
-    const newhigienes = { id, nome, valor }
+    const { nome, valor, marca } = request.body
+    const newhigienes = { id, nome, valor, marca }
     const higieneindex = higienes.findIndex(higiene => higiene.id == id)
     higienes[higieneindex] = newhigienes;
     return response.json(newhigienes)
 })
 app.put('/belezas/:id', (request, response) => {
     const { id } = request.params
-    const { nome, valor } = request.body
-    const newbelezas = { id, nome, valor }
+    const { nome, valor, marca } = request.body
+    const newbelezas = { id, nome, valor, marca }
     const belezaindex = belezas.findIndex(beleza => beleza.id == id)
     belezas[belezaindex] = newbelezas;
     return response.json(newbelezas)
